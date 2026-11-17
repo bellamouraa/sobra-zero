@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sobra Zero — Planejador</title>
+  <meta name="description" content="Cadastre, edite e acompanhe os alimentos que vencem primeiro.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a class="pular-conteudo" href="#conteudo">Ir para o conteúdo</a>
+
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark barra-sz" aria-label="Navegação principal">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Sobra Zero</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+          <li class="nav-item"><a class="nav-link active" href="planejador.html" aria-current="page">Planejador</a></li>
+          <li class="nav-item"><a class="nav-link" href="mural.html">Mural de doação</a></li>
+          <li class="nav-item"><a class="nav-link" href="impacto.html">Impacto</a></li>
+          <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="cabecalho-pagina">
+      <div class="container">
+        <h1>Planejador de alimentos</h1>
+        <p>Cadastre o que você tem em casa e veja o que usar primeiro.</p>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <div class="container">
+      <div class="layout-planejador">
+
+        <!-- Formulário principal: adicionar e editar -->
+        <section class="painel area-form" aria-labelledby="titulo-form">
+          <h2 id="titulo-form">Adicionar item</h2>
+
+          <form id="form-item" novalidate>
+            <div class="row g-3">
+              <div class="col-12">
+                <label for="nome" class="form-label">Nome do alimento</label>
+                <input type="text" class="form-control" id="nome" name="nome"
+                       required minlength="2" maxlength="40"
+                       pattern="[A-Za-zÀ-ÖØ-öø-ÿ0-9 \-]+"
+                       autocomplete="off" placeholder="Ex.: Banana prata"
+                       aria-describedby="erro-nome">
+                <div class="invalid-feedback" id="erro-nome"></div>
+              </div>
+
+              <div class="col-12">
+                <label for="categoria" class="form-label">Categoria</label>
+                <select class="form-select" id="categoria" name="categoria" required aria-describedby="erro-categoria">
+                  <option value="">Selecione...</option>
+                </select>
+                <div class="invalid-feedback" id="erro-categoria"></div>
+              </div>
+
+              <div class="col-6">
+                <label for="quantidade" class="form-label">Quantidade</label>
+                <input type="number" class="form-control" id="quantidade" name="quantidade"
+                       required min="0.1" max="999" step="0.1" inputmode="decimal"
+                       aria-describedby="erro-quantidade">
+                <div class="invalid-feedback" id="erro-quantidade"></div>
+              </div>
+
+              <div class="col-6">
+                <label for="unidade" class="form-label">Unidade</label>
+                <select class="form-select" id="unidade" name="unidade" required aria-describedby="erro-unidade">
+                  <option value="">Selecione...</option>
+                </select>
+                <div class="invalid-feedback" id="erro-unidade"></div>
+              </div>
+
+              <div class="col-12">
+                <label for="validade" class="form-label">Data de validade</label>
+                <input type="date" class="form-control" id="validade" name="validade"
+                       required aria-describedby="erro-validade">
+                <div class="invalid-feedback" id="erro-validade"></div>
+              </div>
+
+              <!-- Doação: o bairro só aparece quando a caixa está marcada -->
+              <div class="col-12">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="doacao" name="doacao">
+                  <label class="form-check-label" for="doacao">Quero oferecer este alimento para doação</label>
+                </div>
+              </div>
+
+              <div class="col-12" id="bloco-bairro" hidden>
+                <label for="bairro" class="form-label">Bairro para retirada</label>
+                <input type="text" class="form-control" id="bairro" name="bairro"
+                       minlength="2" maxlength="40"
+                       pattern="[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ \-]*"
+                       autocomplete="off" placeholder="Ex.: Vila Nova"
+                       aria-describedby="ajuda-bairro erro-bairro">
+                <div class="form-text" id="ajuda-bairro">Informe só o bairro. Não escreva rua, número, nome ou telefone.</div>
+                <div class="invalid-feedback" id="erro-bairro"></div>
+              </div>
+            </div>
+
+            <p class="aviso-privacidade">
+              <strong>Privacidade:</strong> não digite dados pessoais. Cadastre só o alimento
+              (e, se for doar, apenas o bairro).
+              Os itens ficam salvos apenas neste navegador e não são enviados a nenhum servidor.
+            </p>
+
+            <div class="botoes-form">
+              <button type="submit" class="btn btn-success" id="botao-salvar">Adicionar item</button>
+              <button type="button" class="btn btn-outline-secondary" id="botao-cancelar" hidden>Cancelar edição</button>
+            </div>
+
+            <div id="mensagem-status" role="status" aria-live="polite" hidden></div>
+          </form>
+        </section>
+
+        <!-- Lista de itens -->
+        <section class="painel area-lista" aria-labelledby="titulo-lista">
+          <h2 id="titulo-lista">Meus alimentos</h2>
+
+          <dl class="resumo">
+            <div><dt>Itens</dt><dd id="resumo-total">0</dd></div>
+            <div><dt>Usar primeiro</dt><dd id="resumo-atencao">0</dd></div>
+            <div><dt>Vencidos</dt><dd id="resumo-vencidos">0</dd></div>
+          </dl>
+
+          <label for="filtro" class="form-label">Mostrar</label>
+          <select class="form-select filtro" id="filtro">
+            <option value="todos">Todos os itens</option>
+            <option value="atencao">Usar primeiro (vence em até 3 dias)</option>
+            <option value="vencido">Vencidos</option>
+            <option value="ok">Dentro do prazo</option>
+          </select>
+
+          <ul id="lista-itens" class="lista-itens"></ul>
+          <p id="lista-vazia" class="vazio" hidden>Nenhum item para mostrar. Cadastre um alimento ao lado.</p>
+        </section>
+
+        <!-- O que cozinhar hoje? (sugestões do receitas.js) -->
+        <section class="painel area-receitas" aria-labelledby="titulo-receitas">
+          <h2 id="titulo-receitas">O que cozinhar hoje?</h2>
+          <p class="item-detalhe">Receitas simples que usam primeiro o que vence primeiro. Os básicos (sal, óleo, farinha, açúcar) não entram na conta.</p>
+          <ul id="lista-receitas" class="lista-receitas"></ul>
+          <p id="receitas-vazio" class="vazio">Cadastre alimentos como ovo, leite, banana, pão ou legumes para receber sugestões.</p>
+        </section>
+
+        <!-- Painel de registro de atividades -->
+        <section class="painel area-registro" aria-labelledby="titulo-registro">
+          <h2 id="titulo-registro">Registro de atividades</h2>
+          <ol id="lista-registro" class="registro"></ol>
+          <p id="registro-vazio" class="vazio">Nenhuma atividade ainda.</p>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <p>© 2026 Sobra Zero. Todos os direitos reservados.</p>
+      <p>Pequenas atitudes, grandes mudanças.</p>
+      <p>Um projeto de Tecnologia Cidadã que incentiva o consumo consciente e a redução do desperdício.</p>
+      <p>Protótipo com dados fictícios. Nenhuma informação é enviada a servidores.</p>
+      <p class="rodape-code">&lt;/&gt; Feito com HTML, CSS e JavaScript</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="../js/config.js"></script>
+  <script src="../js/datas.js"></script>
+  <script src="../js/validacao.js"></script>
+  <script src="../js/armazenamento.js"></script>
+  <script src="../js/registro.js"></script>
+  <script src="../js/receitas.js"></script>
+  <script src="../js/planejador.js"></script>
+</body>
+</html>
