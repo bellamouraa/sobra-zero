@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sobra Zero — Início</title>
+  <meta name="description" content="Planejador para reduzir o desperdício de alimentos em casa.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a class="pular-conteudo" href="#conteudo">Ir para o conteúdo</a>
+
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark barra-sz" aria-label="Navegação principal">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Sobra Zero</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html" aria-current="page">Início</a></li>
+          <li class="nav-item"><a class="nav-link" href="planejador.html">Planejador</a></li>
+          <li class="nav-item"><a class="nav-link" href="mural.html">Mural de doação</a></li>
+          <li class="nav-item"><a class="nav-link" href="impacto.html">Impacto</a></li>
+          <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="hero">
+      <div class="container hero-conteudo">
+        <p class="terminal" aria-hidden="true">Sobra-Zero --Usar-Primeiro</p>
+        <h1>Use primeiro o que <span class="destaque">Vence primeiro.</span></h1>
+        <p>O Sobra Zero ajuda você a organizar os alimentos que já tem em casa, a evitar que eles estraguem e a medir o impacto de cada escolha.</p>
+        <div class="hero-botoes">
+          <a class="btn btn-warning btn-lg" href="planejador.html">Abrir o Planejador</a>
+          <a class="btn btn-outline-light btn-lg" href="impacto.html">Ver o Impacto</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="secao" aria-labelledby="titulo-problema">
+      <div class="container">
+        <h2 id="titulo-problema">O problema: comida que vai para o lixo</h2>
+        <p class="texto-intro">Muita comida é comprada e acaba estragando antes de ser usada. Os números abaixo são do relatório do PNUMA (ONU Meio Ambiente) e da Embrapa.</p>
+
+        <!-- Bootstrap: grid e cards -->
+        <div class="row g-3">
+          <div class="col-12 col-md-4">
+            <article class="card h-100 card-dado">
+              <div class="card-body">
+                <p class="dado-numero">19%</p>
+                <p class="card-text">dos alimentos disponíveis para consumo no mundo foram desperdiçados em 2022.</p>
+              </div>
+            </article>
+          </div>
+          <div class="col-12 col-md-4">
+            <article class="card h-100 card-dado">
+              <div class="card-body">
+                <p class="dado-numero">60%</p>
+                <p class="card-text">de todo esse desperdício acontece dentro das casas, e não nos mercados ou restaurantes.</p>
+              </div>
+            </article>
+          </div>
+          <div class="col-12 col-md-4">
+            <article class="card h-100 card-dado">
+              <div class="card-body">
+                <p class="dado-numero">94 kg</p>
+                <p class="card-text">por pessoa a cada ano: estimativa do desperdício doméstico no Brasil (inclui cascas e ossos).</p>
+              </div>
+            </article>
+          </div>
+        </div>
+        <p class="fonte">Fontes: PNUMA, Food Waste Index Report 2024; Embrapa, notícia de 27/03/2024.</p>
+      </div>
+    </section>
+
+    <section class="secao secao-clara" aria-labelledby="titulo-como">
+      <div class="container">
+        <h2 id="titulo-como">Como funciona</h2>
+        <ol class="passos">
+          <li>
+            <h3>1. Cadastre</h3>
+            <p>Anote o alimento, a quantidade e a data de validade.</p>
+          </li>
+          <li>
+            <h3>2. Veja o que usar primeiro</h3>
+            <p>A lista é ordenada pela validade e o site sugere receitas para gastar o que vence logo.</p>
+          </li>
+          <li>
+            <h3>3. Finalize e veja o impacto</h3>
+            <p>Marque se consumiu, doou ou descartou. Doações aparecem no mural do bairro e tudo vira um painel de impacto.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="secao" aria-labelledby="titulo-dicas">
+      <div class="container">
+        <h2 id="titulo-dicas">Dicas rápidas</h2>
+        <ul class="dicas">
+          <li><strong>Primeiro que entra, primeiro que sai:</strong> coloque os itens novos atrás e os mais antigos na frente.</li>
+          <li><strong>Congele a tempo:</strong> pães, carnes e sobras podem ir ao congelador em porções antes de estragar.</li>
+          <li><strong>Aproveite o alimento inteiro:</strong> talos, folhas e cascas podem virar bolinhos, sucos e refogados.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="secao secao-clara" aria-labelledby="titulo-ods">
+      <div class="container">
+        <h2 id="titulo-ods">Objetivos de Desenvolvimento Sustentável</h2>
+        <ul class="lista-ods">
+          <li><strong>ODS 12</strong> Consumo e produção responsáveis</li>
+          <li><strong>ODS 2</strong> Fome zero e agricultura sustentável</li>
+          <li><strong>ODS 13</strong> Ação contra a mudança global do clima</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <p>© 2026 Sobra Zero. Todos os direitos reservados.</p>
+      <p>Pequenas atitudes, grandes mudanças.</p>
+      <p>Um projeto de Tecnologia Cidadã que incentiva o consumo consciente e a redução do desperdício.</p>
+      <p>Protótipo com dados fictícios. Nenhuma informação é enviada a servidores.</p>
+      <p class="rodape-code">&lt;/&gt; Feito com HTML, CSS e JavaScript</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

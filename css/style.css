@@ -1,0 +1,728 @@
+/*
+   style.css — estilos do Sobra Zero
+   Abordagem Mobile First: o CSS base serve para celular e as
+   media queries (min-width) adicionam ajustes para telas maiores.
+     - Celular: até 767px
+     - Desktop: a partir de 1024px
+*/
+
+/* Variáveis */
+:root {
+  --verde: #2f7d4f;
+  --verde-escuro: #1f4d36;
+  --escuro: #0d1b17;       /* fundo escuro (navbar, hero, rodapé, console) */
+  --escuro-2: #14302a;
+  --destaque: #3ddc97;     /* verde menta para detalhes sobre fundo escuro */
+  --verde-claro: #eaf5ee;
+  --laranja: #f59f00;
+  --texto: #1d2b24;
+  --cinza: #5b6b63;
+  --borda: #d5e2d9;
+  --fundo: #f3f8f5;
+  --ok: #1e7a3c;
+  --atencao: #8a5a00;
+  --vencido: #b3261e;
+}
+
+/* Base */
+body {
+  color: var(--texto);
+  background: var(--fundo);
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  line-height: 1.25;
+  color: inherit;
+}
+
+h2 {
+  font-size: 1.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.container {
+  max-width: 1100px;
+}
+
+/* Link para quem navega só pelo teclado */
+.pular-conteudo {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: #fff;
+  padding: 0.5rem 1rem;
+  z-index: 30;
+}
+.pular-conteudo:focus {
+  left: 0.5rem;
+  top: 0.5rem;
+}
+
+/* Foco visível em todos os elementos interativos */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--laranja);
+  outline-offset: 2px;
+}
+
+/* ---------- Navbar (Bootstrap + cores do projeto) ---------- */
+.barra-sz {
+  background: var(--verde-escuro);
+}
+
+/* ---------- Início (hero) ---------- */
+.hero {
+  background: linear-gradient(135deg, var(--verde-escuro), var(--verde));
+  color: #fff;
+  padding: 3rem 0;
+}
+
+.hero-conteudo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.hero h1 {
+  font-size: 1.9rem;
+  margin: 0;
+  color: #fff;
+}
+
+.hero p {
+  margin: 0;
+  max-width: 36rem;
+}
+
+/* ---------- Cabeçalho das páginas internas ---------- */
+.cabecalho-pagina {
+  background: var(--verde);
+  color: #fff;
+  padding: 1.5rem 0;
+}
+
+.cabecalho-pagina h1 {
+  font-size: 1.7rem;
+  margin: 0 0 0.25rem;
+  color: #fff;
+}
+
+.cabecalho-pagina p {
+  margin: 0;
+}
+
+/* ---------- Seções ---------- */
+.secao {
+  padding: 2rem 0;
+}
+
+.secao-clara {
+  background: var(--verde-claro);
+}
+
+.texto-intro {
+  max-width: 40rem;
+}
+
+.card-dado {
+  border: 1px solid var(--borda);
+}
+
+.dado-numero {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--verde);
+  margin: 0;
+}
+
+.fonte {
+  font-size: 0.85rem;
+  color: var(--cinza);
+  margin-top: 1rem;
+}
+
+/* Passos (Grid: 1 coluna no celular) */
+.passos {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.passos li {
+  background: #fff;
+  border: 1px solid var(--borda);
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.passos h3 {
+  font-size: 1.1rem;
+  color: var(--verde-escuro);
+}
+
+.dicas {
+  padding-left: 1.2rem;
+}
+
+.dicas li {
+  margin-bottom: 0.5rem;
+}
+
+/* ODS (Flexbox) */
+.lista-ods {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.lista-ods li {
+  background: #fff;
+  border-left: 6px solid var(--verde);
+  padding: 0.75rem 1rem;
+  border-radius: 0.25rem;
+}
+
+/* ---------- Página Sobre ---------- */
+.secao-texto {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--borda);
+  max-width: 48rem;
+}
+
+/* ---------- Página do Planejador ---------- */
+.layout-planejador {
+  display: grid;
+  gap: 1.25rem;
+  padding: 1.5rem 0 2.5rem;
+}
+
+.painel {
+  background: #fff;
+  border: 1px solid var(--borda);
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.aviso-privacidade {
+  font-size: 0.85rem;
+  color: var(--cinza);
+  background: var(--verde-claro);
+  border-radius: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  margin: 1rem 0;
+}
+
+.botoes-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Resumo (Flexbox) */
+.resumo {
+  display: flex;
+  gap: 0.5rem;
+  margin: 0 0 1rem;
+}
+
+.resumo div {
+  flex: 1;
+  text-align: center;
+  background: var(--verde-claro);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.25rem;
+}
+
+.resumo dt {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--cinza);
+}
+
+.resumo dd {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--verde-escuro);
+}
+
+.filtro {
+  margin-bottom: 1rem;
+}
+
+/* Lista de itens */
+.lista-itens {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.item {
+  border: 1px solid var(--borda);
+  border-left-width: 6px;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+}
+
+.item-ok { border-left-color: var(--ok); }
+.item-atencao { border-left-color: var(--laranja); background: #fffaf0; }
+.item-vencido { border-left-color: var(--vencido); background: #fff5f4; }
+
+.item-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.item-nome {
+  font-size: 1.05rem;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.item-detalhe {
+  margin: 0.15rem 0 0;
+  color: var(--cinza);
+  font-size: 0.9rem;
+}
+
+.item-dica {
+  margin: 0.5rem 0 0;
+  font-size: 0.9rem;
+}
+
+.item-acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+/* Selos de status: sempre têm texto, nunca só cor */
+.selo {
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.selo-ok { background: #dcf3e3; color: var(--ok); }
+.selo-atencao { background: #ffe9b8; color: var(--atencao); }
+.selo-vencido { background: #fbd9d6; color: var(--vencido); }
+
+.vazio {
+  color: var(--cinza);
+  margin: 1rem 0 0;
+}
+
+/* Registro de atividades */
+.registro {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 18rem;
+  overflow-y: auto;
+  font-size: 0.85rem;
+}
+
+.registro li {
+  padding: 0.4rem 0.5rem;
+  border-bottom: 1px solid var(--borda);
+  border-left: 4px solid var(--ok);
+  overflow-wrap: anywhere;
+}
+
+.registro li.registro-erro {
+  border-left-color: var(--vencido);
+}
+
+.registro time {
+  color: var(--cinza);
+}
+
+/* ---------- Doação (planejador e mural) ---------- */
+.item-doacao {
+  margin: 0.4rem 0 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--verde-escuro);
+}
+
+.card-doacao {
+  border: 1px solid var(--borda);
+  border-top: 5px solid var(--verde);
+}
+
+/* ---------- O que cozinhar hoje? ---------- */
+.lista-receitas {
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0 0;
+  display: grid;           /* 1 coluna no celular */
+  gap: 0.75rem;
+}
+
+.receita {
+  border: 1px solid var(--borda);
+  border-left: 6px solid var(--laranja);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  background: #fffaf0;
+}
+
+.receita-nome {
+  font-size: 1.05rem;
+  margin: 0 0 0.25rem;
+  color: var(--verde-escuro);
+}
+
+.receita-preparo {
+  margin: 0.5rem 0 0;
+  font-size: 0.9rem;
+}
+
+/* ---------- Painel de impacto ---------- */
+.dado-menor {
+  font-size: 1.5rem;
+  overflow-wrap: anywhere;
+}
+
+.barra-impacto {
+  margin-top: 1.5rem;
+  max-width: 36rem;
+}
+
+.barra-impacto progress {
+  width: 100%;
+  height: 1.25rem;
+  accent-color: var(--verde);
+}
+
+.secao-painel {
+  margin-bottom: 1.5rem;
+}
+
+.historico-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.lista-historico {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+  max-height: 22rem;
+  overflow-y: auto;
+}
+
+.historico-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--borda);
+  font-size: 0.9rem;
+}
+
+.historico-item strong {
+  overflow-wrap: anywhere;
+}
+
+/* ---------- Rodapé ---------- */
+.rodape {
+  background: var(--escuro);
+  color: #e6f0ea;
+  padding: 1.25rem 0;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.rodape p {
+  margin: 0.15rem 0;
+}
+
+/*
+   VISUAL — Aparência de Natureza/Reciclagem
+   Fundo escuro nos blocos de destaque, detalhes em verde menta,
+   fonte monoespaçada em pequenos detalhes e cartões com sombra suave.
+*/
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Fonte de código nos detalhes (sem fonte externa: usa a do sistema) */
+.navbar-brand,
+.terminal,
+.dado-numero,
+.selo,
+.registro,
+.rodape-code,
+.cabecalho-pagina h1::before {
+  font-family: ui-monospace, SFMono-Regular, "Cascadia Code", Consolas, "Liberation Mono", monospace;
+}
+
+/* Navbar escura e fixa no topo */
+.barra-sz {
+  --bs-navbar-active-color: var(--destaque);
+  --bs-navbar-hover-color: #fff;
+  background: var(--escuro);
+  border-bottom: 1px solid #1f3b33;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.navbar-brand::before {
+  content: "$ ";
+  color: var(--destaque);
+}
+
+/* Início (hero) e cabeçalho das páginas: fundo escuro com grade sutil */
+.hero,
+.cabecalho-pagina {
+  background:
+    radial-gradient(circle at 85% 15%, rgba(61, 220, 151, 0.18), transparent 45%),
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px) 0 0 / 32px 32px,
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px) 0 0 / 32px 32px,
+    linear-gradient(135deg, var(--escuro), var(--escuro-2));
+  color: #fff;
+}
+
+.cabecalho-pagina {
+  border-bottom: 3px solid var(--destaque);
+}
+
+.cabecalho-pagina h1::before {
+  content: "// ";
+  color: var(--destaque);
+}
+
+.cabecalho-pagina p {
+  color: #cfe6dc;
+}
+
+/* "Linha de comando" do hero */
+.terminal {
+  display: inline-block;
+  margin: 0;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.85rem;
+  color: var(--destaque);
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid #2a4a40;
+  border-radius: 0.4rem;
+}
+
+.terminal::before {
+  content: "> ";
+}
+
+.terminal::after {
+  content: "\258C"; /* cursor piscando */
+  margin-left: 0.15rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .terminal::after { animation: piscar 1.1s steps(1) infinite; }
+}
+
+@keyframes piscar {
+  50% { opacity: 0; }
+}
+
+.hero h1 .destaque {
+  color: var(--destaque);
+}
+
+.hero-botoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* Títulos de seção com uma barrinha de destaque */
+h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+h2::before {
+  content: "";
+  flex-shrink: 0;
+  width: 0.3rem;
+  height: 1.2em;
+  background: var(--verde);
+  border-radius: 2px;
+}
+
+/* Cartões e painéis: cantos mais arredondados e sombra suave */
+.painel,
+.card,
+.passos li,
+.item,
+.receita,
+.lista-ods li {
+  border-radius: 0.9rem;
+}
+
+.painel,
+.card,
+.passos li {
+  box-shadow: 0 1px 2px rgba(13, 27, 23, 0.06), 0 6px 18px rgba(13, 27, 23, 0.05);
+}
+
+.painel,
+.card-dado {
+  border-top: 4px solid var(--verde);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .card,
+  .passos li {
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .card:hover,
+  .passos li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(13, 27, 23, 0.12);
+  }
+}
+
+.dado-numero {
+  letter-spacing: -0.03em;
+}
+
+.selo {
+  font-size: 0.72rem;
+}
+
+/* Botões e campos */
+.btn {
+  border-radius: 0.55rem;
+  font-weight: 600;
+}
+
+.form-control,
+.form-select {
+  border-radius: 0.55rem;
+  border-color: #c4d6cc;
+}
+
+.form-control:focus,
+.form-select:focus,
+.form-check-input:focus {
+  border-color: var(--verde);
+  box-shadow: 0 0 0 0.2rem rgba(34, 160, 107, 0.25);
+}
+
+.form-check-input:checked {
+  background-color: var(--verde);
+  border-color: var(--verde);
+}
+
+.aviso-privacidade {
+  border-left: 4px solid var(--verde);
+  border-radius: 0.4rem;
+}
+
+/* Registro de atividades com cara de console */
+.registro {
+  background: var(--escuro);
+  color: #d6efe4;
+  border-radius: 0.6rem;
+  padding: 0.25rem;
+}
+
+.registro li {
+  border-bottom: 1px solid #1f3b33;
+  border-left-color: var(--destaque);
+}
+
+.registro li.registro-erro {
+  border-left-color: #ff7b72;
+}
+
+.registro time {
+  color: #8fb7a8;
+}
+
+/* Rodapé */
+.rodape {
+  border-top: 3px solid var(--destaque);
+}
+
+.rodape-code {
+  color: var(--destaque);
+  font-size: 0.85rem;
+}
+
+/* ---------- TABLET — a partir de 768px ----------- */
+@media (min-width: 768px) {
+  h2 { font-size: 1.6rem; }
+
+  .hero { padding: 4rem 0; }
+  .hero h1 { font-size: 2.5rem; }
+
+  /* Passos em 3 colunas (Grid) */
+  .passos { grid-template-columns: repeat(3, 1fr); }
+
+  /* ODS lado a lado (Flexbox) */
+  .lista-ods { flex-direction: row; }
+  .lista-ods li { flex: 1; }
+
+  .painel { padding: 1.5rem; }
+
+  /* Receitas em 2 colunas (Grid) */
+  .lista-receitas { grid-template-columns: repeat(2, 1fr); }
+
+  .dado-menor { font-size: 1.9rem; }
+}
+
+/*
+   DESKTOP — a partir de 1024px
+   Formulário e registro à esquerda; lista à direita.
+*/
+@media (min-width: 1024px) {
+  .layout-planejador {
+    grid-template-columns: 1fr 1.3fr;
+    grid-template-areas:
+      "form lista"
+      "registro lista"
+      "receitas receitas";
+    align-items: start;
+  }
+
+  .area-receitas { grid-area: receitas; }
+  .lista-receitas { grid-template-columns: repeat(3, 1fr); }
+
+  .area-form { grid-area: form; }
+  .area-lista { grid-area: lista; }
+  .area-registro { grid-area: registro; }
+
+  .hero h1 { font-size: 3rem; }
+}
