@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sobra Zero — Impacto</title>
+  <meta name="description" content="Quanto alimento você aproveitou e quanto deixou de desperdiçar.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a class="pular-conteudo" href="#conteudo">Ir para o conteúdo</a>
+
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark barra-sz" aria-label="Navegação principal">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Sobra Zero</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+          <li class="nav-item"><a class="nav-link" href="planejador.html">Planejador</a></li>
+          <li class="nav-item"><a class="nav-link" href="mural.html">Mural de doação</a></li>
+          <li class="nav-item"><a class="nav-link active" href="impacto.html" aria-current="page">Impacto</a></li>
+          <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="cabecalho-pagina">
+      <div class="container">
+        <h1>Painel de impacto</h1>
+        <p>Veja quanto você aproveitou e quanto deixou de desperdiçar.</p>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <div class="container">
+      <section class="secao" aria-labelledby="titulo-painel">
+        <h2 id="titulo-painel">Seu painel de impacto</h2>
+        <p class="texto-intro">Os números abaixo vêm do destino que você deu a cada alimento no planejador:
+          consumido, doado ou descartado.</p>
+
+        <!-- Bootstrap: grid + cards -->
+        <div class="row g-3">
+          <div class="col-6 col-lg-3">
+            <article class="card h-100 card-dado">
+              <div class="card-body">
+                <p class="dado-numero dado-menor" id="imp-aproveitado">0</p>
+                <p class="card-text">de alimento aproveitado (consumido ou doado)</p>
+              </div>
+            </article>
+          </div>
+          <div class="col-6 col-lg-3">
+            <article class="card h-100 card-dado">
+              <div class="card-body">
+                <p class="dado-numero dado-menor" id="imp-valor">0</p>
+                <p class="card-text">em valor que não foi para o lixo (estimado)</p>
+              </div>
+            </article>
+          </div>
+          <div class="col-6 col-lg-3">
+            <article class="card h-100 card-dado">
+              <div class="card-body">
+                <p class="dado-numero dado-menor" id="imp-doado">0</p>
+                <p class="card-text">doados para outras pessoas</p>
+              </div>
+            </article>
+          </div>
+          <div class="col-6 col-lg-3">
+            <article class="card h-100 card-dado">
+              <div class="card-body">
+                <p class="dado-numero dado-menor" id="imp-desperdicado">0</p>
+                <p class="card-text">descartados (desperdício)</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="barra-impacto">
+          <label for="imp-barra" class="form-label">Desperdício evitado</label>
+          <progress id="imp-barra" max="100" value="0"></progress>
+          <p id="imp-percentual" class="item-detalhe"></p>
+        </div>
+
+        <p class="fonte">Atenção: quilos e valores em reais são <strong>estimativas ilustrativas</strong>
+          (peso médio por unidade e preço médio por categoria, definidos em <code>js/config.js</code>). Não são dados oficiais.</p>
+        <div id="mensagem-status" role="status" aria-live="polite" hidden></div>
+      </section>
+
+      <section class="painel secao-painel" aria-labelledby="titulo-historico">
+        <div class="historico-topo">
+          <h2 id="titulo-historico">Histórico</h2>
+          <button type="button" class="btn btn-outline-danger btn-sm" id="botao-limpar" disabled>Limpar histórico</button>
+        </div>
+        <ul id="lista-historico" class="lista-historico"></ul>
+        <p id="historico-vazio" class="vazio">Nenhum alimento finalizado ainda. Use os botões Consumi, Doei ou Descartei no <a href="planejador.html">planejador</a>.</p>
+      </section>
+
+      <section class="painel secao-painel" aria-labelledby="titulo-registro">
+        <h2 id="titulo-registro">Registro de atividades</h2>
+        <ol id="lista-registro" class="registro"></ol>
+        <p id="registro-vazio" class="vazio">Nenhuma atividade ainda.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <p>© 2026 Sobra Zero. Todos os direitos reservados.</p>
+      <p>Pequenas atitudes, grandes mudanças.</p>
+      <p>Um projeto de Tecnologia Cidadã que incentiva o consumo consciente e a redução do desperdício.</p>
+      <p>Protótipo com dados fictícios. Nenhuma informação é enviada a servidores.</p>
+      <p class="rodape-code">&lt;/&gt; Feito com HTML, CSS e JavaScript</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="../js/config.js"></script>
+  <script src="../js/datas.js"></script>
+  <script src="../js/validacao.js"></script>
+  <script src="../js/armazenamento.js"></script>
+  <script src="../js/registro.js"></script>
+  <script src="../js/impacto.js"></script>
+</body>
+</html>
